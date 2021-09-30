@@ -1,42 +1,15 @@
-// const person: object = { -> throws error when person.name
-// const person: {} = {  -> the same as above
-
-enum Role {
-  ADMIN = 4, READ_ONLY = 100, AUTHOR = "DUPA"
+function combine(input1: number | string, input2: number | string) {
+  let result;
+  if (typeof input1 === 'number' && typeof input2 === 'number') {
+    result = input1 + input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+  return result;
 }
 
-const person = {
-  age: 30,
-  name: "Maximillian",
-  hobbies: ["sports", "cooking"],
-  role: Role.ADMIN
-};
+const combinedAges = combine(30, 26);
+console.log(combinedAges);
 
-// person.role.push("admin"); // this will work EXCEPTION!!
-// person.role[1] = 20; -> will throw an eror
-
-// let favouriteActivities: string[] -> will throw an error
-
-// let favouriteActivities: any[]
-// favouriteActivities = ['sports', 1]
-
-let favouriteActivities: string[];
-favouriteActivities = ["sports"];
-
-console.log(person.name);
-
-for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase());
-}
-
-console.log(Role)
-
-const CustomRole = {};
-CustomRole[0] = "ADMIN";
-CustomRole["ADMIN"] = 0;
-console.log(CustomRole);
-
-
-if(person.role === Role.AUTHOR){
-  console.log("this will work")
-}
+const combinedNames = combine('Max', 'Anna');
+console.log(combinedNames);
