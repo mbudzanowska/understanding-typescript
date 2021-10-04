@@ -113,3 +113,21 @@ function moveAnimal(animal:Animal) {
   }
     console.log("Moving with speed: " + speed)
 }
+
+moveAnimal({type: 'bird', flyingSpeed: 500});
+
+const paragraph = document.querySelector('p');
+
+const paragraph2 = document.getElementById('message-output');
+
+const userInputElement = <HTMLInputElement>document.getElementById('user-input')!; // NOT FOR REACT!!!
+const userInputElement2 = document.getElementById('user-input')! as HTMLInputElement; // FOR REACT!!!
+
+// if not ! then you need to use if statement to check if html element truly exists
+if(userInputElement){
+  (userInputElement as HTMLInputElement).value = "Hi there!"
+}
+
+userInputElement.value = "Hi there"
+
+
