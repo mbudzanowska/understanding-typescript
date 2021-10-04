@@ -50,6 +50,19 @@ const result2 = add(3, 3);
 const result3 = add("Max", 3);
 result.split(" ");
 
+
+const fetchedUserData = {
+  id: 'u1',
+  name: 'Max',
+  job: {
+    title: 'CEO', description: "My own company"
+  }
+}
+
+//console.log(fetchedUserData.job && fetchedUserData.job.title)
+
+console.log(fetchedUserData?.job?.title)
+
 type UnknownEmployee = Employee | Admin;
 
 function printEmployeeInformation(emp: UnknownEmployee) {
