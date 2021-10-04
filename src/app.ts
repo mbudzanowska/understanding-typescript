@@ -63,6 +63,13 @@ const fetchedUserData = {
 
 console.log(fetchedUserData?.job?.title)
 
+const userInput = '';
+
+// const storedData = userInput || 'DEFAULT'; // not working with empty string though
+const storedData = userInput ?? 'DEFAULT'; // null or undefined!
+console.log(storedData);
+
+
 type UnknownEmployee = Employee | Admin;
 
 function printEmployeeInformation(emp: UnknownEmployee) {
