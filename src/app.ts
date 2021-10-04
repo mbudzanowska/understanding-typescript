@@ -19,11 +19,12 @@
 // const mergedObj = merge({ name: "Max" }, { age: 30 });
 // mergedObj.name; // this will not work
 
-function merge<T, U>(objA: T, objB: U) {
+function merge<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }
 
 console.log(merge({ name: "Max" }, { age: 30 }));
 
-const mergedObj = merge({ name: "Max" }, { age: 30 });
+// const mergedObj = merge({ name: "Max" }, 30); // constrained with object type (extends), will not work
+const mergedObj = merge({ name: "Max" }, {age: 30});
 mergedObj.name; // this will work!
