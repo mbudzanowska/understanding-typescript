@@ -1,46 +1,34 @@
-// type AddFn = (a: number, b: number) => number;
-interface AddFn {
-  (a: number, b: number): number;
-}
-
-let add: AddFn;
-
-add = (n1: number, n2: number) => {
-  return n1 + n2;
+type Admin = {
+  name: string;
+  privilages: string[];
 };
 
-interface Named {
-  readonly name?: string;
-  outputName?: string;
+type Employee = {
+  name: string;
+  startDate: Date;
+};
+
+interface Admin2 {
+  name: string;
+  privilages: string[];
 }
 
-interface Greetable extends Named {
-  greet(phrase: string): void;
+interface Employee2 {
+  name: string;
+  startDate: Date;
 }
 
-class Person implements Greetable {
-  name?: string;
-  age = 30;
+interface ElevatedEmployee2 extends Employee2, Admin2 {}
 
-  constructor(n?: string) {
-    if (n) {
-      this.name = n;
-    }
-  }
+type ElevatedEmployee = Admin & Employee;
 
-  greet(phrase: string) {
-    if (this.name) {
-      console.log(phrase + ' ' + this.name);
-    } else {
-      console.log('Hi!');
-    }
-  }
-}
+const e1: ElevatedEmployee = {
+  name: "Max",
+  privilages: ["create-server"],
+  startDate: new Date(),
+};
 
-let user1: Greetable;
+type Combinable = string | number;
+type Numeric = number | boolean;
 
-user1 = new Person();
-// user1.name = 'Manu';
-
-user1.greet('Hi there - I am');
-console.log(user1);
+type Universal = Combinable & Numeric;
